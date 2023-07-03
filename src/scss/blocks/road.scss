@@ -1,0 +1,101 @@
+.road {
+  padding: 40px 0 145px;
+}
+
+
+.road__list {
+  margin-bottom: 40px;
+}
+
+.road__title {
+  padding-top: 7px;
+}
+
+.road__number {
+  z-index: 10;
+  font-size: 20px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background-color: #161912;
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: $accent;
+}
+
+.road__item {
+  padding-left: 65px;
+  padding-bottom: 29px;
+  position: relative;
+  border-radius: 16px;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 20px;
+    width: 2px;
+    background-image: url('@img/line.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &:first-child {
+    border-radius: 0 0 16px 16px;
+  }
+}
+
+.road__subtitle {
+  margin-bottom: 4px;
+  color: #4F4F4F;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -0.078px; 
+}
+
+.road__descr {
+  font-size: 17px;
+  letter-spacing: -0.408px; 
+}
+
+.road__text {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  padding-left: 35px;
+  background-position: left center;
+  background-size: 24px 24px;
+  background-repeat: no-repeat;
+
+  &-to {
+    background-image: url('@img/svg/world.svg');
+  }
+  &-time{
+    background-image: url('@img/svg/Clock.svg');
+  }
+  &-weight {
+    background-image: url('@img/icons/icons.svg#shop-icon');
+  }
+  &-volume {
+    background-image: url('@img/svg/charging-battrey.svg');
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

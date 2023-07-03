@@ -1,0 +1,49 @@
+@@include('html/header.html', {
+  "title": "9:41",
+  "bodyClass": "index-body"
+})
+
+<main class="main">
+  <section class="map layer" data-id-menu="4">
+    <div class="map__inner" id="map"></div>
+  </section>
+
+  <section class="road layer" data-id-menu="3">
+    <div class="road__container">
+      <ul class="road__list"></ul>
+      <button class="road__show button button--green">Показать</button>
+    </div>
+  </section>
+
+  <section class="orders layer" data-id-menu="2">
+    <div class="orders__container">
+      <ul class="orders__list"></ul>
+
+      <button class="orders__more button button--green">Показать</button>
+    </div>
+  </section>
+  
+  <section class="order layer layer--active" data-id-menu="1">
+    <div class="order__container">
+      <h2 class="order__title title">СОЗДАНИЕ ЗАКАЗА</h2>
+
+      <form action="#" method="POST" class="order__form form-order">
+        <div class="form-order__inner">
+          <ul class="cites">
+          </ul>
+          <p class="form-order__addr form-order__item">
+            <label for="form-order-address">Адрес доставки:</label>
+            <input type="text" id="form-order-address" name="address" value="" placeholder="Введите адрес" autocomplete="off" required>
+          </p>
+          <p class="form-order__weight form-order__item">
+            <label for="form-order-weight">Вес (гр):</label>
+            <input type="number" id="form-order-weight" name="weight" value="" placeholder="Введите вес" required>
+          </p>
+        </div>
+        <button type="submit" class="button form-order__button form-order__button--set button--green">Обработать</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+@@include('html/footer.html', {})

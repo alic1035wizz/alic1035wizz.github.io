@@ -1,0 +1,230 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+::placeholder {
+  color: #666
+}
+
+::selection {
+  background-color: $accent;
+}
+
+input,
+textarea {
+  outline: none;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  height: 100%;
+  min-width: $mobileW;
+}
+
+body {
+  height: 100%;
+  font-family: $userfont;
+	font-size: $fontsize;
+	line-height: $lineheight;
+	color: $textcolor;
+  font-weight: $fontweight;
+	position: relative;
+	overflow-x: hidden;
+  word-break: break-word;
+  background-color: $dark;
+  letter-spacing: -0.408px; 
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: top;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none; 
+}
+
+a {
+  text-decoration: none;
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.wrapper {
+  min-height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  height: 100%;
+  flex: 1 1 auto;
+}
+
+[class*="__container"] {
+  position: relative;
+  max-width: calc($desktopW + $pad + $pad);
+  padding: 0 $pad;
+  margin: 0 auto;
+};
+
+.title {
+  margin-bottom: 10px;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 25px;
+  color: $accent;
+  letter-spacing: 0.38px;
+}
+
+.button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px; 
+  padding: 21px 70px; 
+
+  line-height: 22px;
+  font-size: 18px;
+  color: $dark;
+  transition: 0.7s ease;
+
+  &--green {
+    background: linear-gradient(5deg, #FDFC47 0%, #24FE41 100%); 
+
+    &:hover,
+    &:focus {
+      background: linear-gradient(5deg, darken(#FDFC47, 20%) 0%, darken(#24FE41, 20%) 100%); 
+    }
+  }
+
+  &--blue {
+    background: linear-gradient(5deg, #AAA 0%, #3DDCFF 100%); 
+
+    &:hover,
+    &:focus {
+      background: linear-gradient(5deg, darken(#AAA, 20%) 0%, darken(#3DDCFF, 20%) 100%); 
+    }
+  }
+}
+
+@keyframes layerAnime {
+  from {
+    transform: translateX(0);
+  }
+  50% {
+    visibility: hidden;
+    z-index: -1;
+    user-select: none;
+    transform: translateX(100%);
+  }
+  to {
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    z-index: -1;
+    user-select: none;
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes layerAnimeUp {
+  from {
+    visibility: hidden;
+    z-index: -1;
+    user-select: none;
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(0%);
+    visibility: visible;
+    z-index: 9997;
+    user-select: auto;
+  }
+  to {
+    height: initial;
+    overflow: initial;
+    transform: translateX(0%);
+    visibility: visible;
+    z-index: 9997;
+    user-select: auto;
+  }
+}
+
+.layer {
+  z-index: 999;
+  position: absolute;
+  top: 0px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  will-change: transform;
+  transition: 0.8s ease;
+  animation: layerAnime 0.8s ease forwards;
+  background-color: $dark;
+}
+
+.layer--active {
+  animation: layerAnimeUp 0.8s ease forwards;
+}
+
+.bg-start {
+  background-color: $dark;
+  position: fixed;
+  z-index: 9999;
+  min-height: 100vh;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 2.5s ease;
+
+  background-image: url('@img/bg-start.svg');
+  background-position: center;
+  background-size: auto 80vh;
+  background-repeat: no-repeat;
+}
+
+.bg-start--remove {
+  opacity: 0;
+}
